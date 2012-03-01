@@ -77,6 +77,20 @@ attribute "jenkins/node/ssh_private_key",
   :default => nil,
   :recipes => [ "jenkins::default" ]
 
+attribute "jenkins/node/jvm_options",
+  :display_name => "jenkins Node Slave JVM Options",
+  :description => "SSH slave JVM options.",
+  :required => "optional",
+  :default => nil,
+  :recipes => [ "jenkins::default" ]
+  
+attribute "jenkins/iptables_allow",
+  :display_name => "jenkins iptables Allow",
+  :description => "if iptables is enabled, add a rule passing ‘jenkins[:server][:port]’",
+  :required => "optional",
+  :default => "enable",
+  :recipes => [ "jenkins::default" ]
+  
 attribute "jenkins/http_proxy/variant",
   :display_name => "jenkins HTTP Proxy Variant",
   :description => "use `nginx` or `apache2` to proxy traffic to jenkins backend (`nil` by default).",
@@ -85,28 +99,33 @@ attribute "jenkins/http_proxy/variant",
   :recipes => [ "jenkins::default" ]
   
 attribute "jenkins/http_proxy/www_redirect",
+  :display_name => "jenkins HTTP WWW Redirect Rule",
   :description => "add a redirect rule for ‘www.*’ URL requests (“disable” by default).",
   :required => "optional",
   :default => "disable",
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/http_proxy/listen_ports",
+  :display_name => "jenkins HTTP Proxy Listen Ports",
   :description => "list of HTTP ports for the HTTP proxy to listen on ([80] by default).",
   :required => "optional",
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/http_proxy/host_name",
+  :display_name => "jenkins HTTP Proxy Hostname",
   :description => "primary vhost name for the HTTP proxy to respond to (`node[:fqdn]` by default).",
   :required => "optional",
   :default => nil,
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/http_proxy/host_aliases",
+  :display_name => "jenkins HTTP Proxy Host Aliases",
   :description => "optional list of other host aliases to respond to (empty by default).",
   :required => "optional",
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/http_proxy/client_max_body_size",
+  :display_name => "jenkins HTTP Proxy Max Client Upload Size",
   :description => "max client upload size (“1024m” by default, nginx only).",
   :required => "optional",
   :default => "1024m",
