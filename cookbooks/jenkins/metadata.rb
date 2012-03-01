@@ -15,11 +15,6 @@ attribute "jenkins/mirror",
   :required => "optional",
   :recipes => [ "jenkins::default" ]
   
-attribute "jenkins/java_home",
-  :display_name => "jenkins Java Home",
-  :description => "Java install path, used for for cli commands.",
-  :recipes => [ "jenkins::default" ]
-
 attribute "jenkins/server/user",
   :display_name => "jenkins Server User",
   :description => "User the Jenkins server runs as.",
@@ -29,17 +24,13 @@ attribute "jenkins/server/user",
 attribute "jenkins/server/group",
   :display_name => "jenkins Server Group",
   :description => "Jenkins user primary group.",
+  :default => "nogroup",
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/server/port",
   :display_name => "jenkins Server Port",
   :description => "TCP listen port for the Jenkins server.",
   :default => '8080',
-  :recipes => [ "jenkins::default" ]
-
-attribute "jenkins/server/url",
-  :display_name => "jenkins Server URL",
-  :description => "Base URL of the Jenkins server.",
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/server/plugins",
