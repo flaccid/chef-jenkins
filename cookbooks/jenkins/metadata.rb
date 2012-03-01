@@ -24,7 +24,7 @@ attribute "jenkins/server/user",
 attribute "jenkins/server/group",
   :display_name => "jenkins Server Group",
   :description => "Jenkins user primary group.",
-  :default => "nogroup",
+  :default => "nobody",
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/server/port",
@@ -77,3 +77,38 @@ attribute "jenkins/node/ssh_private_key",
   :default => nil,
   :recipes => [ "jenkins::default" ]
 
+attribute "jenkins/http_proxy/variant",
+  :display_name => "jenkins HTTP Proxy Variant",
+  :description => "use `nginx` or `apache2` to proxy traffic to jenkins backend (`nil` by default).",
+  :required => "optional",
+  :default => nil,
+  :recipes => [ "jenkins::default" ]
+  
+attribute "jenkins/http_proxy/www_redirect",
+  :description => "add a redirect rule for ‘www.*’ URL requests (“disable” by default).",
+  :required => "optional",
+  :default => "disable",
+  :recipes => [ "jenkins::default" ]
+
+attribute "jenkins/http_proxy/listen_ports",
+  :description => "list of HTTP ports for the HTTP proxy to listen on ([80] by default).",
+  :required => "optional",
+  :default => [ "80" ],
+  :recipes => [ "jenkins::default" ]
+
+attribute "jenkins/http_proxy/host_name",
+  :description => "primary vhost name for the HTTP proxy to respond to (`node[:fqdn]` by default).",
+  :required => "optional",
+  :default => nil,
+  :recipes => [ "jenkins::default" ]
+
+attribute "jenkins/http_proxy/host_aliases",
+  :description => "optional list of other host aliases to respond to (empty by default).",
+  :required => "optional",
+  :recipes => [ "jenkins::default" ]
+
+attribute "jenkins/http_proxy/client_max_body_size",
+  :description => "max client upload size (“1024m” by default, nginx only).",
+  :required => "optional",
+  :default => "1024m",
+  :recipes => [ "jenkins::default" ]
