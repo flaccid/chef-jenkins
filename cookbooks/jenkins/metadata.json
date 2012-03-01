@@ -23,6 +23,100 @@
   "replacing": {
   },
   "attributes": {
+    "jenkins/mirror": {
+      "display_name": "jenkins Mirror",
+      "description": "Base URL for downloading Jenkins (server).",
+      "default": "http://updates.jenkins-ci.org",
+      "required": "optional",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "jenkins/java_home": {
+      "display_name": "jenkins Java Home",
+      "description": "Java install path, used for for cli commands.",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "jenkins/server/user": {
+      "display_name": "jenkins Server User",
+      "description": "User the Jenkins server runs as.",
+      "default": "jenkins",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "jenkins/server/group": {
+      "display_name": "jenkins Server Group",
+      "description": "Jenkins user primary group.",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "jenkins/server/port": {
+      "display_name": "jenkins Server Port",
+      "description": "TCP listen port for the Jenkins server.",
+      "default": "8080",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "jenkins/server/url": {
+      "display_name": "jenkins Server URL",
+      "description": "Base URL of the Jenkins server.",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "jenkins/server/plugins": {
+      "display_name": "jenkins Server Plugins",
+      "description": "Download the latest version of plugins in this list, bypassing update center.",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    }
   },
   "groupings": {
   },
