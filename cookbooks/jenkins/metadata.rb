@@ -93,7 +93,7 @@ attribute "jenkins/http_proxy/www_redirect",
 attribute "jenkins/http_proxy/listen_ports",
   :description => "list of HTTP ports for the HTTP proxy to listen on ([80] by default).",
   :required => "optional",
-  :default => [ "80" ],
+  :default => [ 80 ],
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/http_proxy/host_name",
