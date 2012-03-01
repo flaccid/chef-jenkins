@@ -37,3 +37,43 @@ attribute "jenkins/server/plugins",
   :display_name => "jenkins Server Plugins",
   :description => "Download the latest version of plugins in this list, bypassing update center.",
   :recipes => [ "jenkins::default" ]
+  
+attribute "jenkins/server/plugins",
+  :display_name => "jenkins Server Plugins",
+  :description => "Download the latest version of plugins in this list, bypassing update center.",
+  :recipes => [ "jenkins::default" ]
+  
+attribute "jenkins/node/ssh_host",
+  :display_name => "jenkins Node SSH Host",
+  :description => "Hostname or IP Jenkins should connect to when launching an SSH slave.",
+  :required => "optional",
+  :recipes => [ "jenkins::default" ]
+
+attribute "jenkins/node/ssh_port",
+  :display_name => "jenkins Node SSH Port",
+  :description => "SSH slave port.",
+  :required => "optional",
+  :default => '22',
+  :recipes => [ "jenkins::default" ]
+  
+attribute "jenkins/node/ssh_user",
+  :display_name => "jenkins Node SSH User",
+  :description => "SSH slave user name (only required if jenkins server and slave user is different).",
+  :required => "optional",
+  :default => "jenkins",
+  :recipes => [ "jenkins::default" ]
+
+attribute "jenkins/node/ssh_pass",
+  :display_name => "jenkins Node SSH Password",
+  :description => "SSH slave password (not required when server is installed via default recipe).",
+  :required => "optional",
+  :default => nil,
+  :recipes => [ "jenkins::default" ]
+
+attribute "jenkins/node/ssh_private_key",
+  :display_name => "jenkins Node SSH Private Key",
+  :description => "Sjenkins master defaults to: `~/.ssh/id_rsa` (created by the default recipe).",
+  :required => "optional",
+  :default => nil,
+  :recipes => [ "jenkins::default" ]
+

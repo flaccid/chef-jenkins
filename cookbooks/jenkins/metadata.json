@@ -91,6 +91,75 @@
       "calculated": false,
       "type": "string",
       "required": "optional"
+    },
+    "jenkins/node/ssh_host": {
+      "display_name": "jenkins Node SSH Host",
+      "description": "Hostname or IP Jenkins should connect to when launching an SSH slave.",
+      "required": "optional",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "jenkins/node/ssh_port": {
+      "display_name": "jenkins Node SSH Port",
+      "description": "SSH slave port.",
+      "required": "optional",
+      "default": "22",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "jenkins/node/ssh_user": {
+      "display_name": "jenkins Node SSH User",
+      "description": "SSH slave user name (only required if jenkins server and slave user is different).",
+      "required": "optional",
+      "default": "jenkins",
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "jenkins/node/ssh_pass": {
+      "display_name": "jenkins Node SSH Password",
+      "description": "SSH slave password (not required when server is installed via default recipe).",
+      "required": "optional",
+      "default": null,
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "jenkins/node/ssh_private_key": {
+      "display_name": "jenkins Node SSH Private Key",
+      "description": "Sjenkins master defaults to: `~/.ssh/id_rsa` (created by the default recipe).",
+      "required": "optional",
+      "default": null,
+      "recipes": [
+        "jenkins::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     }
   },
   "groupings": {
