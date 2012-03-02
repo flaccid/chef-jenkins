@@ -4,7 +4,8 @@ license          "Apache 2.0"
 description      "Installs and configures Jenkins CI server & slaves."
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.5"
-%w(runit java iptables).each { |cb| depends cb }
+
+%w(runit java iptables).each { |dep| depends dep }
 
 recipe "jenkins::default", "Installs a Jenkins CI server using the jenkins-ci.org/redhat RPM. The recipe also generates an ssh private key and stores the ssh public key in the node ‘jenkins[:pubkey]’ attribute for use by the node recipes."
 
@@ -40,7 +41,7 @@ attribute "jenkins/server/group",
 attribute "jenkins/server/port",
   :display_name => "jenkins Server Port",
   :description => "TCP listen port for the Jenkins server.",
-  :default => '8080',
+  :default => "8080",
   :recipes => [ "jenkins::default" ]
 
 attribute "jenkins/server/url",
@@ -51,6 +52,8 @@ attribute "jenkins/server/url",
 attribute "jenkins/server/plugins",
   :display_name => "jenkins Server Plugins",
   :description => "Download the latest version of plugins in this list, bypassing update center.",
+  :type => "array",
+  :default => [ "javadoc", "ssh-slaves", "git" ],
   :recipes => [ "jenkins::default" ]
   
 attribute "jenkins/node/name",
