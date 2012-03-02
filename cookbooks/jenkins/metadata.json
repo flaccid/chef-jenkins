@@ -121,6 +121,12 @@
     "jenkins/server/plugins": {
       "display_name": "jenkins Server Plugins",
       "description": "Download the latest version of plugins in this list, bypassing update center.",
+      "type": "array",
+      "default": [
+        "javadoc",
+        "ssh-slaves",
+        "git"
+      ],
       "recipes": [
         "jenkins::default"
       ],
@@ -128,7 +134,6 @@
 
       ],
       "calculated": false,
-      "type": "string",
       "required": "optional"
     },
     "jenkins/node/name": {
